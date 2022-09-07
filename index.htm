@@ -9,7 +9,10 @@
 <body>
     <h1>Cotação de moedas wow</h1>
     <h2 id = "yes"></h2>
-    <p id = "date">data:</p>
+    <p>
+        Date:
+        <span id = "date"></span>
+    </p>
     <span id ="valor" ></span>
 
     <script>
@@ -23,7 +26,9 @@
             .then(function(data){
                 console.log(data)
                 const dolarReal = data.USDBRL
-                document.getElementById()
+
+                document.getElementById('date')
+                .innerHTML = dolarReal.create_date
             })
     </script>
 </body>
