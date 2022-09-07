@@ -8,26 +8,23 @@
 </head>
 <body>
     <h1>Cotação de moedas wow</h1>
+    <h2 id = "yes"></h2>
+    <p id = "date">data:</p>
     <span id ="valor" ></span>
 
     <script>
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.open("get", "https://economia.awesomeapi.com.br/last/USD-BRL");
-        httpRequest.send();
-  
-        httpRequest.onreadystatechange = funçãodamoeda;
-  
-        function funçãodamoeda()
-        {
-            if (httpRequest.readyState == 4 && httpRequest.status == 200)
-            {
-                var valor = httpRequest.responseText;
-                console.log(typeof(valor))
-                var valorObj = JSON.parse(valor);
-                console.log(valorObj)
-                document.getElementById("valor").innerHTML = valorObj.message
-            }
-        }
-      </script>
+        const url = 'https://economia.awesomeapi.com.br/last/'
+        const moeda = "USD-BRL"
+
+        fetch(url + moeda)
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(data){
+                console.log(data)
+                const dolarReal = data.USDBRL
+                document.getElementById()
+            })
+    </script>
 </body>
 </html>
