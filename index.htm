@@ -10,10 +10,20 @@
     <h1>Cotação de moedas wow</h1>
     <h2 id = "yes"></h2>
     <p>
-        Date:
+        Data:
         <span id = "date"></span>
     </p>
     <span id ="valor" ></span>
+
+    <p>
+        Valor Máximo:
+        <span id="high"></span>
+    </p>
+
+    <p>
+        Valor Mínimo:
+        <span id="low"></span>
+    </p>
 
     <script>
         const url = 'https://economia.awesomeapi.com.br/last/'
@@ -29,6 +39,13 @@
 
                 document.getElementById('date')
                 .innerHTML = dolarReal.create_date
+
+
+                document.getElementById('high')
+                .innerHTML = dolarReal.high
+
+                document.getElementById('low')
+                .innerHTML = dolarReal.low
             })
     </script>
 </body>
