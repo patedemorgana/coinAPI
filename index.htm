@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Cotação de moedas wow</h1>
+    <h1 id = "name">Cotação de moedas wow</h1>
     <h2 id = "yes"></h2>
     <p>
         Data:
@@ -34,18 +34,28 @@
                 return response.json()
             })
             .then(function(data){
-                console.log(data)
                 const dolarReal = data.USDBRL
+                
+                let thisDate = new Date(dolarReal.create_date)
+
+
 
                 document.getElementById('date')
-                .innerHTML = dolarReal.create_date
-
-
+                .innerHTML = thisDate.toLocaleString()
                 document.getElementById('high')
-                .innerHTML = dolarReal.high
-
+                .innerHTML = parseFloat(dolarReal.
+                high).toLocaleString('pt-br', {
+                    style: 'currency',
+                    currency: 'BRL'
+                })
                 document.getElementById('low')
-                .innerHTML = dolarReal.low
+                .innerHTML = parseFloat(dolarReal
+                .low).toLocaleString('pt-br', {
+                    style: 'currency',
+                    currency: 'BRL'
+                })
+                document.getElementById('name')
+                .innerHTML = dolarReal.name
             })
     </script>
 </body>
