@@ -23,12 +23,12 @@ p {
     font-size: 1.1rem;
 }
 
-#maxvalue {
+#high {
     color: green;
     font-weight: 700;
 }
 
-#minvalue {
+#low {
     color: red;
     font-weight: 700;
 }
