@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cotação de moedas muito fodas</h1>
+    <p>USD = </p><p id ="valor" ></p>
+
+    <script>
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open("get", "https://economia.awesomeapi.com.br/last/USD-BRL");
+        httpRequest.send();
+  
+        httpRequest.onreadystatechange = funçãodamoeda;
+  
+        function funçãodamoeda()
+        {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200)
+            {
+                var valor = httpRequest.responseText;
+                console.log(typeof(valor))
+                var valorObj = JSON.parse(valor);
+                console.log(valorObj)
+                document.getElementById("valor").innerHTML = valorObj.message
+            }
+        }
+      </script>
+</body>
+</html>
